@@ -5,7 +5,7 @@
         <div class="row">
 
           <div class="col-lg-6 col-md-6 footer-info">
-            <img src="{{ asset('storage/' . $logo->logo) }}" class="mb-2" alt="Logo" width="250">
+            {{-- <img src="{{ asset('storage/' . $logo->logo) }}" class="mb-2" alt="Logo" width="250"> --}}
             <h3>{{ $nm_desa }}</h3>
             <p>
               Kecamatan {{ $kecamatan }}, Kabupaten {{ $kabupaten }}, <br> Provinsi {{ $provinsi }}, Kode Pos {{ $kode_pos }}<br><br>
@@ -35,15 +35,9 @@
               <li><i class="bx bx-chevron-right"></i> <a href="/peta-desa">Peta Desa</a></li>
             </ul>
           </div>
-
-
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>2023</span></strong>. All Rights Reserved
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>

@@ -23,7 +23,7 @@ class AdminBeritaController extends Controller
             'beritas'     => Berita::where('status_id', 2)->with(['user', 'status'])
                 ->orderBy('id', 'DESC')->get(),
             'beritaDraft' => Berita::where('status_id', 1)->with(['user', 'status'])
-                ->orderBy('id', 'DESC')->get(),       
+                ->orderBy('id', 'DESC')->get(),
         ]);
 
     }
@@ -45,7 +45,7 @@ class AdminBeritaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'gambar'        => 'required|mimes:jpeg,jpg,png',
+            'gambar'        => 'required|mimes:jpeg,jpg,png,heic',
             'judul'         => 'required|max:255',
             'slug'          => 'required|unique:beritas',
             'body'          => 'required',
@@ -53,7 +53,7 @@ class AdminBeritaController extends Controller
             'status_id'     => 'required'
         ],[
             'gambar.required'       => 'Wajib menambahkan gambar !',
-            'gambar.mimes'          => 'Format gambar yang di izinkan Jpeg, Jpg, Png',
+            'gambar.mimes'          => 'Format gambar yang di izinkan Jpeg, Jpg, Png, Heic',
             'judul.required'        => 'Wajib menambahkan judul !',
             'slug.required'         => 'Wajib menambahkan slug !',
             'slug.unique'           => 'Slug sudah digunakan',
@@ -65,8 +65,8 @@ class AdminBeritaController extends Controller
         if($request->hasFile('gambar')){
             $path       = 'img-berita/';
             $file       = $request->file('gambar');
-            $extension  = $file->getClientOriginalExtension(); 
-            $fileName   = uniqid() . '.' . $extension; 
+            $extension  = $file->getClientOriginalExtension();
+            $fileName   = uniqid() . '.' . $extension;
             $gambar     = $file->storeAs($path, $fileName, 'public');
         } else {
             $gambar     = null;
@@ -136,8 +136,8 @@ class AdminBeritaController extends Controller
             }
             $path       = 'img-berita/';
             $file       = $request->file('gambar');
-            $extension  = $file->getClientOriginalExtension(); 
-            $fileName   = uniqid() . '.' . $extension; 
+            $extension  = $file->getClientOriginalExtension();
+            $fileName   = uniqid() . '.' . $extension;
             $gambar     = $file->storeAs($path, $fileName, 'public');
         } else {
             $validator = Validator::make($request->all(), [
@@ -174,7 +174,7 @@ class AdminBeritaController extends Controller
 
         return redirect('/admin/berita')->with('success', 'Berhasil memperbarui berita');
     }
-    
+
 
     /**
      * Remove the specified resource from storage.

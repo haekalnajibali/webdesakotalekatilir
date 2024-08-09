@@ -23,10 +23,10 @@
                 </li>
                 <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="/pengumuman">Pengumuman</a></li>
+                        {{-- <li><a href="/pengumuman">Pengumuman</a></li> --}}
                         <li><a href="/berita">Berita</a></li>
                         <li><a href="/gallery">Gallery</a></li>
-                        <li><a href="/apbdesa">APBDesa</a></li>
+                        {{-- <li><a href="/apbdesa">APBDesa</a></li> --}}
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="/umkm">Umkm</a></li>

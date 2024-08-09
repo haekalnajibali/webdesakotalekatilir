@@ -3,11 +3,11 @@
 @section('content')
 <section class="counts section-bg">
     <div class="container">
-  
+
       <div class="section-title">
-        <h2>Perangkat Desa Kragilan</h2>
+        <h2>Perangkat Desa Kota Lekat Ilir</h2>
       </div>
-  
+
       <div class="row">
         @foreach ($perangkatDesa as $perangkat)
           <div class="col-xl-3 my-3" data-aos="fade-up">
@@ -21,7 +21,7 @@
           </div>
         @endforeach
       </div>
-      
+
     </div>
   </section>
 @endsection

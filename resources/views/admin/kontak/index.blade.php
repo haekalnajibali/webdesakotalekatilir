@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card-body">
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">
@@ -24,13 +24,14 @@
 
             <div class="row">
                 <div class="col-lg-8">
-                    <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=402&amp;hl=en&amp;q={{ urlencode($kontak->lokasi) }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31859.386483427665!2d102.25884994999998!3d-3.48897255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e31454d9470d9bb%3A0x33a5db76f98c9f76!2sLekat%20Ilir%20City%2C%20Hulu%20Palik%2C%20Kaur%20Regency%2C%20Bengkulu!5e0!3m2!1sen!2sid!4v1722585868995!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                 </div>
                 <div class="col-lg-4">
                     <form method="POST" action="/admin/kontak/{{ $kontak->id }}">
                         @method('put')
                         @csrf
-    
+
                         <div class="col">
                             <div class="mb-3">
                                 <label for="email" class="form-label">email <span style="color: red">*</span></label>
@@ -55,12 +56,12 @@
                                 @enderror
                             </div>
                         </div>
-    
+
                         <button type="submit" class="btn btn-primary m-1 float-end">Update</button>
                    </form>
                 </div>
             </div>
-              
+
         </div>
 
       </div>

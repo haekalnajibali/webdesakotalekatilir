@@ -37,13 +37,13 @@ class AdminPerangkatDesaController extends Controller
         $validator = Validator::make($request->all(), [
             'nama'      => 'required',
             'jabatan'   => 'required',
-            'foto'      => 'required|mimes:jpeg,jpg,png',
+            'foto'      => 'required|mimes:jpeg,jpg,png,heic',
         ], [
 
             'nama.required'     => 'Wajib menambahkan nama perangkat desa !',
             'jabatan.required'  => 'Wajib menambahkan jabatan perangkat desa !',
             'foto.required'     => 'Wajib menambahkan foto perangkat desa !',
-            'foto.mimes'        => 'Format gambar yang di izinkan Jpeg, Jpg, Png',
+            'foto.mimes'        => 'Format gambar yang di izinkan Jpeg, Jpg, Png, Heic',
         ]);
 
         if($request->hasFile('foto')){
@@ -98,19 +98,19 @@ class AdminPerangkatDesaController extends Controller
 
         if($request->hasFile('foto')){
             if($perangkatDesa->foto){
-                unlink('.' .Storage::url($perangkatDesa->foto));
+                // unlink('.' .Storage::url($perangkatDesa->foto));
             }
             $path       = 'img-perangkat/';
             $file       = $request->file('foto');
-            $extension  = $file->getClientOriginalExtension(); 
-            $fileName   = uniqid() . '.' . $extension; 
+            $extension  = $file->getClientOriginalExtension();
+            $fileName   = uniqid() . '.' . $extension;
             $foto       = $file->storeAs($path, $fileName, 'public');
         } else {
             $validator = Validator::make($request->all(), [
                 'nama'      => 'required',
                 'jabatan'   => 'required',
             ], [
-    
+
                 'nama.required'     => 'Wajib menambahkan nama perangkat desa !',
                 'jabatan.required'  => 'Wajib menambahkan jabatan perangkat desa !',
             ]);
